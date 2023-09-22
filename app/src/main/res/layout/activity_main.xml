@@ -10,7 +10,53 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/wishlist_RV"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="367dp"
+        android:layout_height="49dp"
+        android:text="@string/submit_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="25dp" />
+
+    <EditText
+        android:id="@+id/itemInputView"
+        android:layout_width="128dp"
+        android:layout_height="0dp"
+        android:padding="5dp"
+        android:layout_marginBottom="144dp"
+        android:autofillHints="Item Wanted"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.088"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/priceInputView"
+        android:inputType="numberDecimal"
+        android:layout_width="128dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="4dp"
+        android:autofillHints="Enter Price"
+        android:padding="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.088"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/itemInputView" />
+
+    <EditText
+        android:id="@+id/storeInputView"
+        android:layout_width="128dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:autofillHints="Enter Store"
+        android:padding="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.088"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/priceInputView" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
