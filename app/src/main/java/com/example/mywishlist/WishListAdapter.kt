@@ -1,5 +1,6 @@
 package com.example.mywishlist
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,12 +28,9 @@ class WishListAdapter (private val wishListItems: List<WishItem>) : RecyclerView
 }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val context = parent.context
-        val inflater = LayoutInflater.from(context)
-        // Inflate the custom layout
-        val contactView = inflater.inflate(R.layout.wishlist_item, parent, false)
-        // Return a new holder instance
-        return ViewHolder(contactView)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.wishlist_item, parent, false)
+
+        return ViewHolder(itemView)
     }
 
     override fun getItemCount(): Int {
@@ -41,10 +39,10 @@ class WishListAdapter (private val wishListItems: List<WishItem>) : RecyclerView
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         // Get the data model based on position
-        val wishItem1= wishListItems.get(position)
+        val item = wishListItems[position]
         // Set item views based on views and data model
-        holder.itemTextView.text = wishItem1.item
-        holder.priceTextView.text = wishItem1.price.toString()
-        holder.storeTextView.text = wishItem1.store
+        holder.itemTextView.text = item.item
+        holder.priceTextView.text = "$${item.price}"
+        holder.storeTextView.text = item.store
     }
 }

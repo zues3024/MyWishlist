@@ -3,10 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:padding="10dp">
 
-    <TextView
+
+<TextView
         android:id="@+id/wishItemView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -23,13 +24,14 @@
 
     <TextView
         android:id="@+id/priceView"
-        android:layout_width="wrap_content"
+        android:layout_width="91dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="40dp"
         android:ellipsize="end"
+        android:textAlignment="center"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.882"
+        app:layout_constraintHorizontal_bias="0.933"
         app:layout_constraintStart_toEndOf="@+id/wishItemView"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="19.99" />
@@ -38,13 +40,14 @@
         android:id="@+id/storeView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="20dp"
         android:ellipsize="end"
         android:padding="10dp"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.925"
+        app:layout_constraintHorizontal_bias="0.905"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/priceView"
         tools:text="Target" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

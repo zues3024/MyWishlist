@@ -9,27 +9,32 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
-
-    lateinit var wishItems: List<WishItem>
-    @SuppressLint("MissingInflatedId")
+    private val wishListItems = mutableListOf<WishItem>()
+    private lateinit var adapter: WishListAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val recyclerView = findViewById<RecyclerView>(R.id.wishlist_RV)
+        adapter = WishListAdapter(wishListItems)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = adapter
+        val item = findViewById<EditText>(R.id.itemInputView)
+        val price = findViewById<EditText>(R.id.priceInputView)
+        val storeURL = findViewById<EditText>(R.id.storeInputView)
+        findViewById<Button>(R.id.submitButton).setOnClickListener {
+            val newItem = item.text.toString()
+            val newPrice = price.text.toString().toDoubleOrNull() ?: 0.00
+            val newStoreURL = storeURL.text.toString()
+            val newWish = WishItem(newItem, newPrice, newStoreURL)
 
-        val wishListRV = findViewById<RecyclerView>(R.id.wishlist_RV)
-        val inputItem = findViewById<EditText>(R.id.itemInputView)
-        val inputPrice = findViewById<EditText>(R.id.priceInputView)
-        val inputURL = findViewById<EditText>(R.id.storeInputView)
+            wishListItems.add(newWish)
+            item.text.clear()
+            price.text.clear()
+            storeURL.text.clear()
+            adapter.notifyItemInserted(wishListItems.size)
 
-        wishItems = WishItemFetcher.getWishItems()
-        val wishListAdapter = WishListAdapter(wishItems)
-        wishListRV.adapter = wishListAdapter
-        wishListRV.layoutManager = LinearLayoutManager(this)
-        findViewById<Button>(R.id.submitButton).setOnClickListener{
-            val newWishItem = WishItemFetcher.getNext5Emails()
-            (wishItems as MutableList<WishItem>).addAll(newWishItem)
-            wishListAdapter.notifyDataSetChanged()
         }
+
     }
 }
