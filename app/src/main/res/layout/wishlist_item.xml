@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:textSize="18sp"
+        android:textColor="@color/silver"
         android:layout_marginTop="25dp"
         android:lines="1"
         android:ellipsize="end"
