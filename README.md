@@ -27,7 +27,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src=Wishlist.gif />
+<img src=Wish2.gif />
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with ...  
